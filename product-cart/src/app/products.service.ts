@@ -19,7 +19,7 @@ export class ProductsService {
     console.log(obj);
 
     this.http.post(`${this.uri}/add`, obj)
-          .subscribe(res => console.log('Done'));
+          .subscribe(res => console.log('Product has been added to database'));
   }
 
   getProducts() {
@@ -38,7 +38,7 @@ export class ProductsService {
     };
 
     this.http.post(`${this.uri}/update/${id}`, obj)
-    .subscribe(res => console.log('Done'));
+    .subscribe(res => console.log(res));
   }
 
   deleteProduct(id) {

@@ -34,8 +34,8 @@ productRoutes.route('/').get(function (req, res) {
 // Defined edit route
 productRoutes.route('/edit/:id').get(function (req, res) {
     let id = req.params.id;
-    Product.findById(id, function (err, Product) {
-        res.json(product);
+    Product.findById(id, function (err, products) {
+        res.json(products);
     });
 });
 
@@ -63,7 +63,10 @@ productRoutes.route('/update/:id').post(function (req, res) {
 productRoutes.route('/delete/:id').get(function (req, res) {
     Product.findByIdAndRemove({_id: req.params.id}, function(err, product) {
         if(err) res.json(err);
-        else res.json('Successfully removes');
+        else{
+            console.log(res);
+            res.json('Successfully removes');
+        }
     });
 });
 
