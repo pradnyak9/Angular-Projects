@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { SlimLoadingBarModule, SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,7 +26,7 @@ import { ProductsService } from './products.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ ProductsService ],
+  providers: [ProductsService, SlimLoadingBarService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

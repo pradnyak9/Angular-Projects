@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="postForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Post Title</label>
+                <input type="text" name="" id="" class="form-control" formControlName="postTitle" #postTitle />
+            </div>
+            <div *ngIf="postForm.controls['postTitle'].invalid && (postForm.controls['postTitle'].dirty || postForm.controls['postTitle'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="postForm.controls['postTitle'].errors.required">
+                    Post Title is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4">Post Content</label>
+                <textarea name="" id="" cols="5" rows="7" class="form-control" formControlName="postContent"
+                    #postContent></textarea>
+            </div>
+            <div *ngIf="postForm.controls['postContent'].invalid && (postForm.controls['postContent'].dirty || postForm.controls['postContent'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="postForm.controls['postContent'].errors.required">
+                    Post Content is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4">Auther</label>
+                <input type="text" name="" id="" class="form-control" formControlName="postAuther" #postAuther />
+            </div>
+            <div *ngIf="postForm.controls['postAuther'].invalid && (postForm.controls['postAuther'].dirty || postForm.controls['postAuther'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="postForm.controls['postAuther'].errors.required">
+                    Auther is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <button (click)="createPost(postTitle.value, postContent.value, postAuther.value)"
+                    type="button" class="btn btn-primary" [disabled]="postForm.invalid || postForm.pristine">Create
+                    Post</button>
+            </div>
+        </form>
+    </div>
+</div>

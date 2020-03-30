@@ -1,5 +1,5 @@
 // server.js
-const express = require('express');
+const express = require('express'); //external dependency. By using "require" we tell node.js that it has to be pulled into our code because we need it.
     path = require('path');
     bodyParser = require('body-parser');
     cors = require('cors');
